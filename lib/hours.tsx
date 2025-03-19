@@ -28,7 +28,7 @@ function HourlyWeather() {
 
 
   return (
-    < View className=" flex flex-1 flex-row bg-white opacity-50 rounded-2xl items-center justify-between  py-3 pl-3 my-3" >
+    < View className=" flex flex-row bg-white opacity-50 rounded-2xl items-center justify-between  py-3 pl-3 my-3" >
       <ScrollView horizontal={true}>
         < TouchableOpacity >
           <View className={"flex flex-col justify-between gap-3 items-center"}>

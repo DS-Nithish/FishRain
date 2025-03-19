@@ -1,6 +1,6 @@
 
 
-export const weatherImages = {
+export const weatherImages:any = {
   'Sunny': require('../assets/images/sun.png'),
   'Clear': require('../assets/images/sun.png'),
   'Clear ': require('../assets/images/sun.png'),
