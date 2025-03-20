@@ -161,7 +161,7 @@ const Index = () => {
             <TouchableOpacity className="items-start w-full">
               <View className="flex flex-row gap-3 items-center justify-center">
                 <Ionicons name="settings" size={17} />
-                <Text>eee</Text>
+                <Text>Low Pollen Count</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -170,125 +170,19 @@ const Index = () => {
 
           < View className=" flex flex-row bg-white opacity-50 rounded-2xl items-center justify-between  py-3 pl-3 my-3" >
             <ScrollView horizontal={true}>
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[0]?.time.slice(10, 16)} </Text>
+              <Hourly time={0} icon={0} temp={0} />
+              <Hourly time={2} icon={2} temp={2} />
+              <Hourly time={4} icon={4} temp={4} />
+              <Hourly time={6} icon={6} temp={6} />
+              <Hourly time={8} icon={8} temp={8} />
+              <Hourly time={10} icon={10} temp={10} />
+              <Hourly time={12} icon={12} temp={12} />
+              <Hourly time={14} icon={14} temp={14} />
+              <Hourly time={16} icon={16} temp={16} />
+              <Hourly time={18} icon={18} temp={18} />
+              <Hourly time={20} icon={20} temp={20} />
+              <Hourly time={22} icon={22} temp={22} />
 
-                  <Image className="size-11" resizeMode="contain" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[0]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[0]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 2 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[2]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[2]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[2]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 4 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[4]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[4]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[4]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 6 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[6]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[6]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[6]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 8 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[8]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[8]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[8]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 10 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[10]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[10]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[10]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[12]?.time.slice(10, 16)} </Text>
-
-                  <Image className="size-11" resizeMode="contain" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[12]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[12]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 2 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[14]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[14]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[14]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 4 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[16]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[16]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[16]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 6 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[18]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[18]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[18]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 8 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[20]?.time.slice(10, 16)} </Text>
-
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[20]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[20]?.temp_c.toFixed(0)} </Text>
-                </View>
-              </TouchableOpacity >
-              {/* 10 */}
-              < TouchableOpacity >
-                <View className={"flex flex-col justify-between gap-3 items-center"}>
-                  <Text>{forecastData?.forecast?.forecastday?.[0]?.hour?.[22]?.time.slice(10, 16)} </Text>
-                  {/* <Image className="size-11" source={{ uri: 'https:' + forecastData?.forecast?.forecastday?.[0]?.hour?.[22]?.condition?.icon }} /> */}
-                  < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[22]?.condition?.text]} />
-
-                  < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[22]?.temp_c.toFixed(0)
-                  } </Text>
-                </View>
-              </TouchableOpacity >
             </ScrollView>
           </View >
 
@@ -307,70 +201,16 @@ const Index = () => {
               </View>
             </TouchableOpacity>
           </View>
+
+
           <View className=" flex flex-col  bg-white opacity-50 rounded-2xl items-center justify-between  py-3 px-3 my-3">
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[0]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[0]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[0]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[1]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[1]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[1]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[1]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[2]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[2]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[2]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[2]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[3]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[3]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[3]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[3]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[4]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[4]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[4]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[4]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[5]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[5]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[5]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[5]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity className="w-full" >
-              <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-                <Text >{forecastData?.forecast?.forecastday?.[0]?.date.slice(8, 10) || "Loading..."}</Text>
-                <Text>{month}</Text>
-                <Text>{day}</Text>
-                <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.day?.condition?.text]} />
-                <Text >{forecastData?.forecast?.forecastday?.[0]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[0]?.day.mintemp_c.toFixed(0)}</Text>
-              </View>
-            </TouchableOpacity>
+            <Days date={0} icon={0} temp={0} />
+            <Days date={1} icon={1} temp={1} />
+            <Days date={2} icon={2} temp={2} />
+            <Days date={3} icon={3} temp={3} />
+            <Days date={4} icon={4} temp={4} />
+            <Days date={5} icon={5} temp={5} />
+            <Days date={6} icon={6} temp={6} />
 
 
 
@@ -421,10 +261,48 @@ const Index = () => {
         </View>
 
 
-
       </ScrollView>
     </View>
   );
-};
 
+
+function Hourly({ time, icon ,temp}: { time: number, icon: number ,temp:number}) {
+
+ const hourTime = forecastData?.forecast?.forecastday?.[0]?.hour?.[time]?.time.slice(10, 16)
+  return (
+    < TouchableOpacity >
+      <View className={"flex flex-col justify-between gap-3 items-center"}>
+        <Text>{hourTime} </Text>
+
+        < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[icon]?.condition?.text]} />
+
+        < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[temp]?.temp_c.toFixed(0)} </Text>
+      </View>
+    </TouchableOpacity >
+  )
+
+}
+function Days({date,icon,temp}:{date:number,icon:number,temp:number}) {
+  
+  const newDate = forecastData?.forecast?.forecastday?.[date]?.date;
+  const dates = new Date(newDate).toDateString();
+ 
+  const month = dates.slice(4, 7);
+  const day = dates.slice(0, 3);
+
+  return(
+  <TouchableOpacity className="w-full" >
+  <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
+    <Text >{forecastData?.forecast?.forecastday?.[date]?.date.slice(8, 10) || "Loading..."}</Text>
+    <Text>{month}</Text>
+    <Text>{day}</Text>
+    <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[icon]?.day?.condition?.text]} />
+    <Text >{forecastData?.forecast?.forecastday?.[temp]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[temp]?.day.mintemp_c.toFixed(0)}</Text>
+  </View>
+</TouchableOpacity>
+)
+
+}
+
+};
 export default Index;
