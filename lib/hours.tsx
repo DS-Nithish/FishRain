@@ -1,15 +1,20 @@
 import { Text, View, TouchableOpacity, ScrollView, Image } from "react-native";
 import { useEffect, useState } from "react";
 import { weatherImages } from "@/app/weather_app";
-
+import * as Location from "expo-location"
 
 function HourlyWeather() {
   const [forecastData, setForecastData] = useState<any>(null);
+  const [location, setLocation] = useState<any>(null)
+
+
+
 
   const forecast = async () => {
-    const city = "Tuticorin";
+    const lat = location?.coords?.latitude.toFixed(4);
+    const lon = location?.coords?.longitude.toFixed(4);
     const apiKey = "3f54bb226e104ca9829110050251603";
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=7&aqi=no`;
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -17,11 +22,24 @@ function HourlyWeather() {
       console.log(data);
     } catch (error) {
       console.error("Error fetching weather data:", error);
+
     }
+
   };
 
   // Trigger the weather function when the component mounts
   useEffect(() => {
+    (async () => {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status == 'granted') {
+        console.log("granted");
+      } else {
+        console.log("denied");
+      }
+      const location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+
+    })();
     forecast();
   }, []);
 
