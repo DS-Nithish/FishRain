@@ -1,11 +1,11 @@
-import { Alert, Image, ImageBackground, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Image, ImageBackground, ImageSourcePropType, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import "../global.css"
 import React, { useEffect, useState } from "react";
 import { FontAwesome6, Ionicons, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 import * as Location from "expo-location";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import HourlyWeather from "@/lib/hours";
 import weatherImages from "./weather_app";
+import { weatherNightImages } from "./weather_app";
 
 
 
@@ -170,18 +170,18 @@ const Index = () => {
 
           < View className=" flex flex-row bg-white opacity-50 rounded-2xl items-center justify-between  py-3 pl-3 my-3" >
             <ScrollView horizontal={true}>
-              <Hourly time={0} icon={0} temp={0} />
-              <Hourly time={2} icon={2} temp={2} />
-              <Hourly time={4} icon={4} temp={4} />
-              <Hourly time={6} icon={6} temp={6} />
-              <Hourly time={8} icon={8} temp={8} />
-              <Hourly time={10} icon={10} temp={10} />
-              <Hourly time={12} icon={12} temp={12} />
-              <Hourly time={14} icon={14} temp={14} />
-              <Hourly time={16} icon={16} temp={16} />
-              <Hourly time={18} icon={18} temp={18} />
-              <Hourly time={20} icon={20} temp={20} />
-              <Hourly time={22} icon={22} temp={22} />
+              <Hourly time={0} icon={0} iconname={weatherImages} temp={0} />
+              <Hourly time={2} icon={2} iconname={weatherImages} temp={2} />
+              <Hourly time={4} icon={4} iconname={weatherImages} temp={4} />
+              <Hourly time={6} icon={6} iconname={weatherImages} temp={6} />
+              <Hourly time={8} icon={8}iconname={weatherImages} temp={8} />
+              <Hourly time={10} icon={10} iconname={weatherImages} temp={10} />
+              <Hourly time={12} icon={12} iconname={weatherImages} temp={12} />
+              <Hourly time={14} icon={14} iconname={weatherImages} temp={14} />
+              <Hourly time={16} icon={16} iconname={weatherImages} temp={16} />
+              <Hourly time={18} icon={18} iconname={weatherNightImages} temp={18} />
+              <Hourly time={20} icon={20} iconname={weatherNightImages} temp={20} />
+              <Hourly time={22} icon={22} iconname={weatherNightImages} temp={22} />
 
             </ScrollView>
           </View >
@@ -266,43 +266,44 @@ const Index = () => {
   );
 
 
-function Hourly({ time, icon ,temp}: { time: number, icon: number ,temp:number}) {
+  function Hourly({ time, icon, iconname,temp }: { time: number, icon: number,iconname:any, temp: number }) {
 
- const hourTime = forecastData?.forecast?.forecastday?.[0]?.hour?.[time]?.time.slice(10, 16)
-  return (
-    < TouchableOpacity >
-      <View className={"flex flex-col justify-between gap-3 items-center"}>
-        <Text>{hourTime} </Text>
+    const hourTime = forecastData?.forecast?.forecastday?.[0]?.hour?.[time]?.time.slice(10, 16)
+    const hourNightIcon = weatherNightImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[icon]?.condition?.text];
 
-        < Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[0]?.hour?.[icon]?.condition?.text]} />
+    return (
 
-        < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[temp]?.temp_c.toFixed(0)} </Text>
-      </View>
-    </TouchableOpacity >
-  )
+      < TouchableOpacity >
+        <View className={"flex flex-col justify-between gap-3 items-center"}>
+          <Text>{hourTime} </Text>
+          < Image className="size-11" source={iconname[forecastData?.forecast?.forecastday?.[0]?.hour?.[icon]?.condition?.text]} />
+          < Text > {forecastData?.forecast?.forecastday?.[0]?.hour?.[temp]?.temp_c.toFixed(0)} </Text>
+        </View>
+      </TouchableOpacity >
+    )
 
-}
-function Days({date,icon,temp}:{date:number,icon:number,temp:number}) {
-  
-  const newDate = forecastData?.forecast?.forecastday?.[date]?.date;
-  const dates = new Date(newDate).toDateString();
- 
-  const month = dates.slice(4, 7);
-  const day = dates.slice(0, 3);
+  }
+  function Days({ date, icon, temp }: { date: number, icon: number, temp: number }) {
 
-  return(
-  <TouchableOpacity className="w-full" >
-  <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
-    <Text >{forecastData?.forecast?.forecastday?.[date]?.date.slice(8, 10) || "Loading..."}</Text>
-    <Text>{month}</Text>
-    <Text>{day}</Text>
-    <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[icon]?.day?.condition?.text]} />
-    <Text >{forecastData?.forecast?.forecastday?.[temp]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[temp]?.day.mintemp_c.toFixed(0)}</Text>
-  </View>
-</TouchableOpacity>
-)
+    const newDate = forecastData?.forecast?.forecastday?.[date]?.date;
+    const dates = new Date(newDate).toDateString();
 
-}
+    const month = dates.slice(4, 7);
+    const day = dates.slice(0, 3);
+
+    return (
+      <TouchableOpacity className="w-full" >
+        <View className={"flex flex-row  gap-1.5  items-center justify-between"}>
+          <Text >{forecastData?.forecast?.forecastday?.[date]?.date.slice(8, 10) || "Loading..."}</Text>
+          <Text>{month}</Text>
+          <Text>{day}</Text>
+          <Image className="size-11" source={weatherImages[forecastData?.forecast?.forecastday?.[icon]?.day?.condition?.text]} />
+          <Text >{forecastData?.forecast?.forecastday?.[temp]?.day.maxtemp_c.toFixed(0)}{" / "}{forecastData?.forecast?.forecastday?.[temp]?.day.mintemp_c.toFixed(0)}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+
+  }
 
 };
 export default Index;
